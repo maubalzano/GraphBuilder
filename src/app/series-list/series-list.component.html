@@ -1,0 +1,11 @@
+<div>
+    <p>Series</p>
+    <div class="series-list">
+        <div *ngFor="let single of series" class="series-single">
+            <p (click)="selectSeries(single)">{{single.name}}</p>
+            <img (click)="delSeries(single)" src="https://cdn-icons-png.flaticon.com/512/1237/1237946.png" class="del-btn">
+        </div>
+        
+        <img class="add-btn" (click)="add()" src="https://cdn-icons-png.flaticon.com/512/1237/1237946.png">
+    </div>
+</div>

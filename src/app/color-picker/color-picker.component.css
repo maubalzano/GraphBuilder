@@ -1,0 +1,40 @@
+:host{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    z-index:2;
+    position:relative
+}
+.color-icon{
+    position:absolute;
+    width:24px;
+    height:24px;
+    border-radius:20px;
+}
+.picker{
+    background-color:white;
+    border:solid 1px grey;
+    display:inline-flex;
+    flex-flow:row wrap;
+    justify-content:space-around;
+    align-items:stretch;
+    width:120px;
+    height:120px;
+    position:absolute;
+    bottom:28px;
+    box-sizing:border-box;
+    z-index:6;
+    border-radius:5px;
+    padding:2px;
+    box-shadow:0px 0px 20px lightgray
+}
+.color{
+    width:18.2%;
+    height:18.2%;
+    cursor:pointer;
+    border-radius: 5px;
+    box-shadow:0px 0px 10px  lightgray
+}
+.color:hover{
+    opacity:.8
+}

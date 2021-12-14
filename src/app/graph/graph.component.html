@@ -1,0 +1,85 @@
+
+
+
+<div class="settings">
+    <div class="title-settings text-input-icon">
+        
+        <label for="title"><img width="14px"src="https://cdn-icons-png.flaticon.com/512/3597/3597088.png"></label>
+        <input id="title" type="text" [(ngModel)]="title">
+    </div>
+    
+
+    <div class="types-container">
+        <p>Chart type</p>
+        <div class="types">
+        
+        <div [class.selected]="type == 'bar'">
+            <label  for="bar"><p>Bar</p><img style="transform:rotate(90deg)" src="https://cdn-icons-png.flaticon.com/512/876/876171.png"></label> 
+            
+            <input id="bar" type="radio" name="type" value="bar" [(ngModel)]="type"> 
+        </div>
+        <div [class.selected]="type == 'column'">
+            <label for="column"><p>Column</p><img src="https://cdn-icons-png.flaticon.com/512/876/876171.png"></label> 
+            
+            <input id="column" type="radio" name="type" value="column" [(ngModel)]="type"> 
+        </div>
+        <div [class.selected]="type == 'pie'">
+            <label for="pie"><p>Pie</p><img src="https://cdn-icons-png.flaticon.com/512/3102/3102621.png"></label>
+            
+            <input id="pie" type="radio" name="type" value="pie" [(ngModel)]="type">
+        </div>
+        <div [class.selected]="type == 'line'">
+            <label for="line"><p>Line</p><img src="https://cdn-icons-png.flaticon.com/512/876/876174.png"></label>
+            
+            <input id="line" type="radio" name="type" value="line" [(ngModel)]="type">
+        </div>
+        <div [class.selected]="type == 'area'">
+            <label for="area"><p>Area</p><img src="https://cdn-icons-png.flaticon.com/512/603/603066.png"></label>
+            
+            <input id="area" type="radio" name="type" value="area" [(ngModel)]="type">
+        </div>
+        <div [class.selected]="type == 'scatter'">
+            <label for="scatter"><p>Scatter</p><img src="https://cdn-icons-png.flaticon.com/512/1449/1449286.png"></label>
+            
+            <input id="scatter" type="radio" name="type" value="scatter" [(ngModel)]="type">
+        </div>
+        <div [class.selected]="type == 'item'">
+            <label for="parliament"><p>Parliament</p><img src="https://cdn-icons-png.flaticon.com/512/5427/5427733.png"></label>
+            
+            <input id="parliament" type="radio" name="type" value="item" [(ngModel)]="type">
+        </div>
+        
+        
+    </div>
+        <button class="btn" [disabled]="type == 'pie'" [ngStyle]="{'opacity': type == 'pie' ? '.3' : '1'}" (click)="toggle3d()">3D</button>
+    
+    <div *ngIf="options3d.enabled" class="container-3d">
+        <graph-options3d [options3d]="options3d" [type]="type" (change3d)="options3dChange(options3d)" (cylinderToggle)="cylinderToggle()"></graph-options3d>
+    </div>
+    </div>
+    <div *ngIf="type == 'column' || type == 'bar'">
+        <graph-width-setting [type]="type" (setWidth)="changeWidth($event)"></graph-width-setting>
+        
+    </div>
+
+    <div *ngIf="selected" class="series-card">
+        <div class="text-input-icon">
+            <label for="{{selected.name}}"><img width="14px"src="https://cdn-icons-png.flaticon.com/512/3597/3597088.png"></label><input id="{{selected.name}}" type="text" [(ngModel)]="selected.name" (change)="changeProp()">
+        </div>
+        
+        <div class="data" *ngFor="let dataSingle of selected.data">
+            <input type="text" (change)="changeProp()" [(ngModel)]="dataSingle.name">
+            <input [id]="dataSingle.name" type="number" (change)="changeProp()" [(ngModel)]="dataSingle.y">
+            <img *ngIf="type == 'pie'" class="add-btn" src="https://cdn-icons-png.flaticon.com/512/825/825318.png" (click)="slice(dataSingle)" [class.btnOn]="dataSingle.sliced" >
+            <graph-color-picker style="z-index:5" (colorPicker)="setColor($event, dataSingle)"></graph-color-picker>
+            <img (click)="delData(dataSingle)" src="https://cdn-icons-png.flaticon.com/512/1237/1237946.png" class="del-btn">
+        </div>
+        <img class="add-btn" (click)="addData(selected)" src="https://cdn-icons-png.flaticon.com/512/1237/1237946.png">
+        
+    </div>
+    
+    <graph-series-list [series]="series" (addSeries)="addSeries()" (delete)="deleteSeries($event)" (select)="selectSeries($event)"></graph-series-list>
+</div>
+<graph-output-graph [title]="title" [type]="type" [series]="series" [options3d]="options3d" [cylinder]="cylinder" [pointWidth]="pointWidth" [changeDetector]="changeDetector" (selectPoint)="selectPoint($event)"></graph-output-graph>
+
+

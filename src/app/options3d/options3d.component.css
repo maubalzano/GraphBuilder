@@ -1,0 +1,26 @@
+.container3d{
+    margin-top:15px;
+    border-top:solid 1px lightgray;
+    padding:24px 10px;
+    display:flex;
+    flex-direction: column;
+    align-items:flex-start;
+    gap:8px
+}
+.container3d > div{
+    width:100%;
+    display:grid;
+    grid-template-columns: 30% 30% 30%;
+    align-items:center;
+    justify-items: center;
+    
+    
+
+}
+.container3d input[type="number"]{
+    max-width:60px;
+    border:none;
+    border-radius:20px;
+    background-color: white;
+    text-align: center;
+}

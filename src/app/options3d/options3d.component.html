@@ -1,0 +1,23 @@
+<div class="container3d">
+    <div>
+        <label for="alpha"><img width="20px" src="https://cdn-icons-png.flaticon.com/512/271/271242.png"></label>
+        <input id="alpha" type="range" min="0" max="90" [(ngModel)]="options3d.alpha" (change)="options3dChange()">
+        <input type="number" [(ngModel)]="options3d.alpha" (change)="options3dChange()">
+    </div>
+    <div>
+        <label for="beta"><img width="20px" style="transform:rotate(90deg)" src="https://cdn-icons-png.flaticon.com/512/271/271242.png"></label>
+        <input id="beta" type="range" min="0" max="90" [(ngModel)]="options3d.beta" (change)="options3dChange()">
+        <input type="number" [(ngModel)]="options3d.beta" (change)="options3dChange()"> 
+    </div>
+    <div>
+        <label for="distance">Distance</label>
+        <input id="distance" type="range" min="8" max="80" [(ngModel)]="options3d.viewDistance" (change)="options3dChange()">
+        <input type="number" [(ngModel)]="options3d.viewDistance" (change)="options3dChange()">
+    </div>
+    <div *ngIf="type == 'column'">
+        <label for="cylinder">Cylinder</label>
+        <img width="24px" src="https://cdn-icons-png.flaticon.com/512/1224/1224904.png">
+        <input id="cylinder" type="checkbox" name="cylinder" [(ngModel)]="cylinder" (change)="cylinderSet()">
+    </div>
+</div>
+

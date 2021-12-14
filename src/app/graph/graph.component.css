@@ -1,0 +1,114 @@
+:host{
+    position:relative;
+    display:flex;
+    flex-direction:row;
+    box-shadow:0px 0px 4px lightgray;
+    border-radius:16px;
+    overflow:hidden
+    
+}
+.settings{
+    border-top-left-radius:16px;
+    
+    display:flex;
+    flex-direction:column;
+    padding:10px;
+    background-image:linear-gradient( rgb(219, 238, 255), rgb(238, 247, 255)) ;
+}
+.settings *{
+    text-align:center
+}
+.settings > div{
+    padding:20px;
+}
+.settings > div:not(:first-of-type){
+    border-top: solid 1px lightgray
+}
+.title-settings{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px
+}
+input[type="text"]{
+    position:relative;
+    border-radius:20px;
+    padding:5px;
+    background-color: transparent;
+    border:none
+}
+.text-input-icon{
+    display:flex;
+    align-items:center;
+    gap:5px
+}
+input[type="text"]:hover, input[type="text"]:focus{
+    background-color: white;
+}
+.series-card{
+    border-radius:5px;
+    border-top:solid 1px lightgray;
+    padding:10px;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    gap:10px
+
+}
+.series-card .text-input-icon input, .settings .text-input-icon input{
+    font-size:18px;
+    font-family:'SF-Pro-Bold'
+}
+
+.data{
+    border-radius:20px;
+    background-color:white;
+    box-shadow:0px 2px 10px rgb(232, 232, 232);
+    padding:5px;
+    display:flex;
+    justify-content:center;
+    gap:5px
+}
+.types-container{
+    border-top:solid 1px lightgray
+}
+.types{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    gap:5px;
+    padding:5px
+}
+.selected{
+    
+    box-shadow:inset 0px 10px 30px rgb(221, 232, 244)
+}
+.types > div{
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    border-radius:3px;
+    padding:5px;
+    width:50px;
+    gap:2px;
+    
+}
+.types div label{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
+    cursor:pointer
+}
+.types div input{
+    visibility: hidden;
+}
+
+.types img{
+    width:20px
+}
+.data input{
+    border:none;
+
+}

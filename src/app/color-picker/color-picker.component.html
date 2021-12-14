@@ -1,0 +1,4 @@
+<div class="color-icon" (click)="toggle()" width="18px" [style.background-color]="color"></div>
+<div *ngIf="show" class="picker">
+    <div class="color" [style.background-color]="color" (click)="pickColor(color)" *ngFor="let color of colors"></div>
+</div>
